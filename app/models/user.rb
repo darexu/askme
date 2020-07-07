@@ -7,9 +7,10 @@ class User < ApplicationRecord
 
   has_many :questions
 
+  before_validation :before_validation
+
   validates :email, :username, presence: true
   validates :email, :username, uniqueness: true
-
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }, on: :create
   validates :username, format: { with: /\A[a-zA-Z0-9_]+\z/}, length: { maximum: 40 }, on: :create
 
@@ -50,5 +51,8 @@ class User < ApplicationRecord
     end
   end
 
+  def before_validation
+    self.username = self.username.downcase
+  end
 
 end
