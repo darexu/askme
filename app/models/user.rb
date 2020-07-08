@@ -5,21 +5,18 @@ class User < ApplicationRecord
   ITERATIONS = 20000
   DIGEST = OpenSSL::Digest::SHA256.new
 
-  has_many :questions
+  attr_accessor :password, :email
 
-  before_validation :before_validation
+  has_many :questions
 
   validates :email, :username, presence: true
   validates :email, :username, uniqueness: true
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }, on: :create
   validates :username, format: { with: /\A[a-zA-Z0-9_]+\z/}, length: { maximum: 40 }, on: :create
+  validates :password, presence: true, on: :create
+  validates :password, confirmation: true
 
-  attr_accessor :password, :email
-
-  validates_presence_of :password, on: :create
-
-  validates_confirmation_of :password
-
+  before_validation :downcase_username
   before_save :encrypt_password
 
   def encrypt_password
@@ -51,8 +48,9 @@ class User < ApplicationRecord
     end
   end
 
-  def before_validation
-    self.username = self.username.downcase
-  end
-
+  private
+    def downcase_username
+      self.username = self.username.downcase
+    end
+  
 end
