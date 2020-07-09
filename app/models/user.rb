@@ -11,12 +11,12 @@ class User < ApplicationRecord
 
   validates :email, :username, presence: true
   validates :email, :username, uniqueness: true
-  validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }, on: :create
-  validates :username, format: { with: /\A[a-zA-Z0-9_]+\z/}, length: { maximum: 40 }, on: :create
+  validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }, on: [:create, :update]
+  validates :username, format: { with: /\A[a-zA-Z0-9_]+\z/}, length: { maximum: 40 }, on: [:create, :update]
   validates :password, presence: true, on: :create
   validates :password, confirmation: true
 
-  before_validation :downcase_username
+  before_validation :downcase_username, :downcase_email
   before_save :encrypt_password
 
   def encrypt_password
@@ -48,9 +48,12 @@ class User < ApplicationRecord
     end
   end
 
-  private
-    def downcase_username
-      self.username = self.username.downcase
-    end
+  def downcase_username
+    self.username = self.username.downcase
+  end
+
+  def downcase_email
+    self.email = self.email.downcase
+  end
 
 end

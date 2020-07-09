@@ -2,7 +2,8 @@ class Question < ApplicationRecord
 
   belongs_to :user
 
-  validates :text, :user, presence: true
-  validates :text, length: { maximum: 255 }, on: :create
+  #начиная с 5 рельс связь belongs_to добавляет validates :user, presence: true автоматически
+  validates :text, presence: true
+  validates :text, length: { maximum: 255 }, on: [:create, :update]
 
 end
