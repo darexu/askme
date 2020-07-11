@@ -18,6 +18,7 @@ gem 'sqlite3', '~> 1.4'
 # gem 'image_processing', '~> 1.2'
 
 gem 'jquery-rails'
+gem 'webpacker', '~> 5.x'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
