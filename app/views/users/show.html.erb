@@ -54,7 +54,7 @@
 
 <div class="column-3-4">
   <div class="question questions-total buffer-top text-lead ">
-    Всего вопросов <%= @questions.size %>
+    Всего <%= @questions.size %> <%= inclination(@questions.size, 'вопрос', 'вопроса', 'вопросов') %>
   </div>
 </div>
 
