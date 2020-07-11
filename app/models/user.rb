@@ -5,7 +5,7 @@ class User < ApplicationRecord
   ITERATIONS = 20000
   DIGEST = OpenSSL::Digest::SHA256.new
 
-  attr_accessor :password, :email
+  attr_accessor :password
 
   has_many :questions
 
@@ -15,7 +15,8 @@ class User < ApplicationRecord
   validates :password, presence: true, on: :create
   validates :password, confirmation: true
 
-  before_validation :downcase_username, :downcase_email
+  before_validation { username&.downcase! }
+  before_validation { email&.downcase! }
   before_save :encrypt_password
 
   # служебный метод, преобразующий бинарную строку в 16-ричный формат, для удобства хранения
@@ -34,6 +35,8 @@ class User < ApplicationRecord
     end
   end
 
+  private
+
   def encrypt_password
     if self.password.present?
       # создаем т. н. "соль" - рандомная строка усложняющая задачу хакерам
@@ -45,13 +48,5 @@ class User < ApplicationRecord
         OpenSSL::PKCS5.pbkdf2_hmac(self.password, self.password_salt, ITERATIONS,  DIGEST.length, DIGEST)
       )
     end
-  end
-
-  def downcase_username
-    self.username = self.username.downcase if self.username
-  end
-
-  def downcase_email
-    self.email = self.email.downcase if self.email
   end
 end
