@@ -39,8 +39,8 @@ class UsersController < ApplicationController
       Question.new(text: 'В чем смысл жизни?', created_at: Date.parse('10.07.2020')),
       Question.new(text: 'Какая погода?', created_at: Date.parse('10.07.2020')),
       Question.new(text: 'Где деньги?', created_at: Date.parse('10.07.2020')),
-      Question.new(text: 'Мелочь есть?', created_at: Date.parse('10.07.2020')),
-      Question.new(text: 'Как пройти в библиотеку?', created_at: Date.parse('10.07.2020'))
+      Question.new(text: 'Мелочь есть?', created_at: Date.parse('10.07.2020'), answer: 'Нет, только не говори, что найдешь'),
+      Question.new(text: 'Как пройти в библиотеку?', created_at: Date.parse('10.07.2020'), answer: 'Дойти до угла, поверни направо, повтори три раза')
     ]
 
     @new_question = Question.new

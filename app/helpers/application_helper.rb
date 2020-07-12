@@ -13,11 +13,15 @@ module ApplicationHelper
     number = amount % 10
 
     if number == 1
-        yenot
+      yenot
     elsif number.between?(2,4)
-        yenota
+      yenota
     else
-        yenotov
+      yenotov
     end
+  end
+
+  def no_answer(questions)
+    questions.select { |q| q.answer.nil? }.size
   end
 end

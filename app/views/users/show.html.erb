@@ -54,7 +54,8 @@
 
 <div class="column-3-4">
   <div class="question questions-total buffer-top text-lead ">
-    Всего <%= @questions.size %> <%= inclination(@questions.size, 'вопрос', 'вопроса', 'вопросов') %>
+    Всего <%= @questions.size %> <%= inclination(@questions.size, 'вопрос', 'вопроса', 'вопросов') %>,
+    <%= no_answer = no_answer(@questions) %> без ответа, <%= @questions.size - no_answer %> с ответом.
   </div>
 </div>
 
