@@ -1,3 +1,13 @@
+// This file is automatically compiled by Webpack, along with any other files
+// present in this directory. You're encouraged to place your actual application logic in
+// a relevant structure within app/javascript and only use these pack files to reference
+// that code so it'll be compiled.
+require("@rails/ujs").start()
+require("turbolinks").start()
+require("@rails/activestorage").start()
+require("channels")
+
+
 // This is a manifest file that'll be compiled into application.js, which will
 // include all the files listed below.
 //
@@ -19,10 +29,11 @@
 // Этот код добавляет обработчик события выдвигания формы при клике на кнопку
 // «Задать вопрос», которая видна только, когда страница открыта в маленьком
 // окне.
-$(function(){
+// Called once after the initial page has loaded
+
+$(document).on('turbolinks:load', function() {
   $('#ask-button').click(function(){
     $('#ask-form').slideToggle(300);
     return false;
   });
-});
-
+})
