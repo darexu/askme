@@ -24,6 +24,11 @@
   margin-top: 40px;
 }
 
+.buffer-both-small {
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+
 .container {
   max-width: 960px;
   margin-left: auto;

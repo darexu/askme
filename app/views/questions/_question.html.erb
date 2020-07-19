@@ -13,6 +13,11 @@
       <%= question.text %>
     </div>
 
+    <% if question.author&.username %>
+      <div class="buffer-both-small">
+        Задал <%= link_to(question.author.username, user_path(question.author))%>
+      </div>
+    <% end %>
     <%# Текст ответа, если он есть %>
     <% if question.answer.present? %>
       <div class="question-answer text-lead">
