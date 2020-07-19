@@ -39,7 +39,11 @@
       </div>
       <div class="form-field">
         <%= f.label 'Цвет страницы профиля', class: 'form-label' %>
-        <%= f.color_field :header_color, value: "#{@user.header_color}" %>
+        <% if @user.header_color %>
+          <%= f.color_field :header_color, value: @user.header_color %>
+        <% else %>
+          <%= f.color_field :header_color, value: "#005a55" %>
+        <% end %>
       </div>
       <div class="buffer-top-large buffer-bottom">
         Если не хотите менять пароль — оставьте эти поля пустыми!
@@ -59,6 +63,15 @@
         <%= f.submit 'Сохранить', class: 'button button-dark button-small' %>
       </div>
     <% end %>
+
+    <div class="buffer-top-large buffer-bottom">
+      Удалить профиль
+    </div>
+
+    <div class="user-actions">
+      <%= button_to('Удалить', user_path(@user), method: "delete",
+                    class: "button button-red button-small", data: { confirm: 'Точно удалить профиль?' }) %>
+    </div>
 
     <%# Подробнее про помощники для создания форм: %>
     <%# http://guides.rubyonrails.org/form_helpers.html %>

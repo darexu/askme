@@ -40,6 +40,13 @@ class UsersController < ApplicationController
     end
   end
 
+  def destroy
+    session[:user_id] = nil
+    @user.destroy
+
+    redirect_to root_path, notice: 'Профиль удален.'
+  end
+
   def edit
   end
 
