@@ -39,7 +39,7 @@
       </div>
       <div class="form-field">
         <%= f.label 'Цвет страницы профиля', class: 'form-label' %>
-        <%= f.text_field :header_color, class: 'form-text-field set-color', value: "#{@user.header_color}"%>
+        <%= f.color_field :header_color, value: "#{@user.header_color}" %>
       </div>
       <div class="buffer-top-large buffer-bottom">
         Если не хотите менять пароль — оставьте эти поля пустыми!

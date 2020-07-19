@@ -28,8 +28,6 @@
  *= require users
  *= require questions
  *
- *= require jquery.minicolors
- *
  * Подключаем сам файл application.css. Если бы ниже были правила css стилей,
  * они тоже попали бы в конечный стилевой файл.
  *= require_self

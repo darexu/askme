@@ -7,7 +7,6 @@ require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 
-
 // This is a manifest file that'll be compiled into application.js, which will
 // include all the files listed below.
 //
@@ -34,8 +33,5 @@ $(document).on('turbolinks:load', function() {
   $('#ask-button').click(function(){
     $('#ask-form').slideToggle(300);
     return false;
-  });
-  $(document).ready(function() {
-    $('.set-color').minicolors();
   });
 })
