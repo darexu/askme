@@ -1,5 +1,4 @@
 class Question < ApplicationRecord
-
   belongs_to :user
   # optional: true дает возможность сохранить вопрос без автора
   belongs_to :author, class_name: 'User', optional: true
