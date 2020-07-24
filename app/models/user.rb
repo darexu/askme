@@ -12,7 +12,7 @@ class User < ApplicationRecord
   validates :email, :username, presence: true, uniqueness: true
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
   validates :username, format: { with: /\A[a-zA-Z0-9_]+\z/}, length: { maximum: 40 }
-  validates :header_color, format: { with: /\A#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})\z/}
+  validates :header_color, format: { with: /\A#[a-f0-9]{6}\z/}
   validates :password, presence: true, on: :create
   validates :password, confirmation: true
 
