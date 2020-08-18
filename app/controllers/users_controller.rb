@@ -11,6 +11,7 @@ class UsersController < ApplicationController
   # Это действие отзывается, когда пользователь заходит по адресу /users
   def index
     @users = User.all
+    @hashtags = Hashtag.with_questions
   end
 
   def new
