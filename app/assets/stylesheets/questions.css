@@ -45,3 +45,7 @@
 .question-actions a {
   margin-left: 10px;
 }
+
+.question-background-grey {
+  background-color: white;
+}

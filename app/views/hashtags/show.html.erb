@@ -1,12 +1,12 @@
-<div class="index-container default-color">
+<div class="index-container">
   <div class="text-center margin-both-large">
-    <div class="margin-both-large">
-      <h1 class="title-medium"><%= @hashtag.text %></h1>
+    <div class="buffer-both-large question-background-grey">
+      <h1 class="title-medium"><%= "##{@hashtag.text}" %></h1>
     </div>
     <div class="flex-section-row">
       <div class="question-box">
         <% @questions.each do |question|%>
-          <div class="question-content">
+          <div class="question-content buffer-bottom question-background-grey">
             <div class="question-text text-lead">
               <%= question.text %>
             </div>
