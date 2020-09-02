@@ -12,6 +12,10 @@ gem 'uglifier'
 
 gem 'webpacker', '~> 5.x'
 
+gem 'recaptcha', require: 'recaptcha/rails'
+
+gem 'dotenv-rails', groups: [:development, :test]
+
 group :production do
   gem 'pg'
 end
