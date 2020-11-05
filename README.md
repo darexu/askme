@@ -4,7 +4,7 @@ The application is made for educational purposes, reminds [ask.fm](https://ask.f
 Users can ask each other questions and answer them.
 Implemented the functionality of creating a hashtag for questions.
 Added recaptcha to prevent bots from being used.
-Configured to work with [Heroku](heroku.com), demo here [mymegaquestion.herokuapp.com](mymegaquestion.herokuapp.com)
+Configured to work with [Heroku](https://heroku.com), demo here [mymegaquestion.herokuapp.com](https://mymegaquestion.herokuapp.com)
 
 
 ## Requirements
