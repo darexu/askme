@@ -1,24 +1,37 @@
-# README
+# Askme
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+The application is made for educational purposes, reminds [ask.fm](https://ask.fm).
+Users can ask each other questions and answer them.
+Implemented the functionality of creating a hashtag for questions.
+Added recaptcha to prevent bots from being used.
+Configured to work with [Heroku](heroku.com), demo here [mymegaquestion.herokuapp.com](mymegaquestion.herokuapp.com)
 
-Things you may want to cover:
 
-* Ruby version
+## Requirements
 
-* System dependencies
+ruby '2.7.0'
 
-* Configuration
+rails '~> 6.0.3', '>= 6.0.3.1'
 
-* Database creation
+A complete list of gems used is specified in the Gemfile
 
-* Database initialization
+## Getting started
 
-* How to run the test suite
+Download or clone repo
 
-* Services (job queues, cache servers, search engines, etc.)
+Use bundler (skip gems needed only in production)
+```
+bundle install --without production
+```
 
-* Deployment instructions
+Run database migrations
+```
+bundle exec rails db:migrate
+```
 
-* ...
+Launch Rails server 
+```
+bundle exec rails s
+```
+
+Open `http://localhost:3000` in your browser
